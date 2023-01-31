@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83f97c95-e837-4a10-b453-48dc5b480cc5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenium/dropdown.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/selenium/checkboxes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +43,7 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.dropdown">
+  <component name="RunManager" selected="Application.checkboxes">
     <configuration name="array" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="selenium.array" />
       <module name="Selenium_Java" />
@@ -70,8 +70,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="dropdown" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="selenium.dropdown" />
+    <configuration name="checkboxes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="selenium.checkboxes" />
       <module name="Selenium_Java" />
       <extension name="coverage">
         <pattern>
@@ -83,8 +83,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="intro" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="selenium.intro" />
+    <configuration name="dropdown" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="selenium.dropdown" />
       <module name="Selenium_Java" />
       <extension name="coverage">
         <pattern>
@@ -111,11 +111,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.checkboxes" />
         <item itemvalue="Application.dropdown" />
         <item itemvalue="Application.browserActions" />
         <item itemvalue="Application.array" />
         <item itemvalue="Application.locators" />
-        <item itemvalue="Application.intro" />
       </list>
     </recent_temporary>
   </component>
