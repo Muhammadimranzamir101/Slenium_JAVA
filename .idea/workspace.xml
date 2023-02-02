@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83f97c95-e837-4a10-b453-48dc5b480cc5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenium/Assertion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/selenium/calendar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +44,7 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Assertion">
+  <component name="RunManager" selected="Application.calendar">
     <configuration name="Assertion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="selenium.Assertion" />
       <module name="Selenium_Java" />
@@ -57,8 +58,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="array" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="selenium.array" />
+    <configuration name="browserActions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="selenium.browserActions" />
       <module name="Selenium_Java" />
       <extension name="coverage">
         <pattern>
@@ -70,8 +71,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="browserActions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="selenium.browserActions" />
+    <configuration name="calendar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="selenium.calendar" />
       <module name="Selenium_Java" />
       <extension name="coverage">
         <pattern>
@@ -111,11 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Assertion" />
+        <item itemvalue="Application.calendar" />
         <item itemvalue="Application.checkboxes" />
+        <item itemvalue="Application.Assertion" />
         <item itemvalue="Application.dropdown" />
         <item itemvalue="Application.browserActions" />
-        <item itemvalue="Application.array" />
       </list>
     </recent_temporary>
   </component>
