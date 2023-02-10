@@ -9,7 +9,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class miniDriver {
     public static void main(String[] args) throws InterruptedException {
@@ -35,8 +37,16 @@ public class miniDriver {
         {
             a.keyDown(Keys.COMMAND).build().perform();
             columnDriver.findElements(By.tagName("a")).get(i).click();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         }
+
+        Set<String> windows = driver.getWindowHandles();
+        Iterator<String> id = windows.iterator();
+
+        while (id.hasNext()){
+            driver.switchTo().window(id.next());
+            System.out.println(driver.getTitle());
+            Thread.sleep(2000);        }
 
         driver.quit();
     }
