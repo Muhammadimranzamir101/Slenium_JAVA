@@ -1,4 +1,4 @@
-package selenium;
+package com.tests;
 
 import java.io.IOException;
 import org.openqa.selenium.By;

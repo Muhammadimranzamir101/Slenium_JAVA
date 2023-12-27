@@ -1,4 +1,4 @@
-package selenium;
+package com.tests;
 
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
