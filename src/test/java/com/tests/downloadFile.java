@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Test;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -12,8 +13,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class downloadFile {
-    public static void main(String[] args) throws IOException {
+
+    @Test
+    public void downloadFileTest() throws IOException, InterruptedException {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox","--disable-notifications","--remote-allow-origins=*");
         Map<String, Object> prefs = new HashMap<String, Object>();
         prefs.put("download.default_directory","/Users/mimran/Documents");
         options.setExperimentalOption("prefs", prefs);
@@ -23,7 +27,7 @@ public class downloadFile {
 //        WebElement element = driver.findElement(By.cssSelector("a[href*=\"1.21.3\"][href*=\"32.zip\"]"));
 //        element.click();
 
-        URL url= new URL("https://eternallybored.org/misc/wget/releases/wget-1.21.3-win32.zip");
+        URL url= new URL("https://eternallybored.org/misc/wget/releases/wget-1.21.4-win32.zip");
         InputStream in = new BufferedInputStream(url.openStream());
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         byte[] buf = new byte[1024];
@@ -53,8 +57,9 @@ public class downloadFile {
         out.close();
         in.close();
         byte[] response = out.toByteArray();
-        FileOutputStream fos = new FileOutputStream("/Users/mimran/Documents"+fileToDownload);
+        FileOutputStream fos = new FileOutputStream("/Users/mimran/Documents/"+fileToDownload);
         fos.write(response);
+        Thread.sleep(5000);
         fos.close();
         driver.close();
 

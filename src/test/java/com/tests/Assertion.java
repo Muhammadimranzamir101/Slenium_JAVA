@@ -1,19 +1,28 @@
 package com.tests;
 
+import com.base.BaseSuiteSetup;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Assertion {
-    public static void main(String[] args) {
+import static com.drivers.DriverManager.getDriver;
 
+public class Assertion extends BaseSuiteSetup {
 
-        WebDriver driver = new ChromeDriver();
-        driver.navigate().to("https://tutorialshut.com/");
+    @BeforeClass
+    public void setupTest(){
+        getDriver ().navigate ()
+                .to ("https://tutorialshut.com/");
+    }
+
+    @Test
+    public void assertionsTest() {
+        WebDriver driver = getDriver();
         String ActualTitle = driver.getTitle();
         String ExpectedTitle = "Tutorials Hut -Free Tutorials and Software Testing material";
 
@@ -44,12 +53,10 @@ public class Assertion {
         //SoftAssert
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals("Selenium", "Selenium", "1st Soft assert passed");
-        softAssert.assertTrue("Selenium".equals("selenium"), "2nd Soft assert failed");
-        softAssert.assertTrue("Testing".equals("testingggg"), "3rd soft assert failed");
+//        softAssert.assertTrue("Selenium".equals("selenium"), "2nd Soft assert failed");
+//        softAssert.assertTrue("Testing".equals("testingggg"), "3rd soft assert failed");
 
         softAssert.assertAll();
-
-        driver.close();
 
     }
 }

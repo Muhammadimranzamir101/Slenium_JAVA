@@ -1,5 +1,6 @@
 package com.tests;
 
+import com.base.BaseSuiteSetup;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -14,20 +15,26 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.Iterator;
 
+import static com.drivers.DriverManager.getDriver;
 
-public class loginByPass {
-    public static void main(String[] args) throws InterruptedException {
 
-        ChromeOptions options = new ChromeOptions();
+public class loginByPass extends BaseSuiteSetup {
+    @BeforeClass
+    public void setupTest(){
+        getDriver ().navigate ()
+                .to ("https://dev-qmsuat.baitussalam.org/");
+    }
+    @Test
+    public void loginByPassTest() throws InterruptedException {
 
-        options.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = getDriver();
 
         try {
-            driver.get("https://dev-qmsuat.baitussalam.org/");
             authenticateViaApi("TestUser943", "abc", driver);
             Thread.sleep(5000);
 

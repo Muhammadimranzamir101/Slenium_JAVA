@@ -1,19 +1,30 @@
 package com.tests;
 
+import com.base.BaseSuiteSetup;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class locators {
+import static com.drivers.DriverManager.getDriver;
 
-    public static void main(String[] args) throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+public class locators extends BaseSuiteSetup {
+
+    @BeforeClass
+    public void setupTest(){
+        getDriver ().navigate ()
+                .to ("https://rahulshettyacademy.com/locatorspractice/");
+    }
+
+    @Test
+    public void locatorsTest() throws InterruptedException {
+        WebDriver driver = getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.get("https://rahulshettyacademy.com/locatorspractice/");
         driver.findElement(By.id("inputUsername")).sendKeys("imran");
         driver.findElement(By.name("inputPassword")).sendKeys("Mobile@1");
         driver.findElement(By.className("signInBtn")).click();
@@ -38,6 +49,5 @@ public class locators {
         System.out.println(driver.findElement(By.cssSelector("div p")).getText());
         Assert.assertEquals(driver.findElement(By.cssSelector("div p")).getText(),"You are successfully logged in.");
         Thread.sleep(5000);
-        driver.close();
     }
 }

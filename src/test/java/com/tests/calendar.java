@@ -1,24 +1,34 @@
 package com.tests;
 
+import com.base.BaseSuiteSetup;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class calendar {
-    public static void main(String[] args) throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+import static com.drivers.DriverManager.getDriver;
+
+public class calendar extends BaseSuiteSetup {
+
+    @BeforeClass
+    public void setupTest(){
+        getDriver ().navigate ()
+                .to ("https://www.booking.com");
+    }
+    @Test
+    public void calendarTest() throws InterruptedException {
+        WebDriver driver = getDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.booking.com");
         driver.findElement(By.cssSelector("button[data-testid*=\"start\"]")).click();
 
         selectRoundTrip(driver, 15,20);
         //selectReturnDateAfterNDays(driver,5);
         Thread.sleep(5000);
-        driver.close();
     }
 
     public static void selectRoundTrip(@NotNull WebDriver driver, int startDate, int endDate)

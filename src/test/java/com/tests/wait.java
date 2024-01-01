@@ -1,5 +1,6 @@
 package com.tests;
 
+import com.base.BaseSuiteSetup;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,16 +9,25 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class wait {
-    public static void main(String[] args) throws InterruptedException {
+import static com.drivers.DriverManager.getDriver;
 
-        WebDriver driver = new ChromeDriver();
+public class wait extends BaseSuiteSetup {
+    @BeforeClass
+    public void setupTest(){
+        getDriver ().navigate ()
+                .to ("https://rahulshettyacademy.com/locatorspractice/");
+    }
+    @Test
+    public void waitTest() throws InterruptedException {
+
+        WebDriver driver = getDriver();
         WebDriverWait w = new WebDriverWait(driver,Duration.ofMillis(5000)); //Explicit Wait
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); // Implicit Wait
-        driver.get("https://rahulshettyacademy.com/locatorspractice/");
         driver.findElement(By.id("inputUsername")).sendKeys("imran");
         driver.findElement(By.name("inputPassword")).sendKeys("Mobile@1");
         driver.findElement(By.className("signInBtn")).click();
@@ -43,7 +53,5 @@ public class wait {
         System.out.println(driver.findElement(By.cssSelector("div p")).getText());
         Assert.assertEquals(driver.findElement(By.cssSelector("div p")).getText(),"You are successfully logged in.");
         Thread.sleep(5000);
-        driver.close();
-
     }
 }

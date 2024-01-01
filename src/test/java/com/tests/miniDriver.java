@@ -7,17 +7,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import static com.drivers.DriverManager.getDriver;
+
 public class miniDriver {
-    public static void main(String[] args) throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+    @BeforeClass
+    public void setupTest(){
+        getDriver ().navigate ()
+                .to ("https://www.rahulshettyacademy.com/AutomationPractice/");
+    }
+
+    @Test
+    public void miniDriverTest() throws InterruptedException {
+        WebDriver driver = getDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.rahulshettyacademy.com/AutomationPractice/");
 
         List<WebElement> links = driver.findElements(By.tagName("a"));
         System.out.println("Number of links in the page : "+links.size());

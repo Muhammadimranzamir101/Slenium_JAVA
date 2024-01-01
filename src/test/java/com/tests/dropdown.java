@@ -1,5 +1,6 @@
 package com.tests;
 
+import com.base.BaseSuiteSetup;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,14 +8,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class dropdown {
-    public static void main(String[] args) throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+import static com.drivers.DriverManager.getDriver;
+
+public class dropdown extends BaseSuiteSetup {
+    @BeforeClass
+    public void setupTest(){
+        getDriver ().navigate ()
+                .to ("https://rahulshettyacademy.com/dropdownsPractise/");
+    }
+
+    @Test
+    public void dropdownTest() throws InterruptedException {
+        WebDriver driver = getDriver();
 
         //Dropdown with Select tag
         Select dropdown = new Select(driver.findElement(By.name("ctl00$mainContent$DropDownListCurrency")));
@@ -71,7 +81,5 @@ public class dropdown {
         }
 
         Thread.sleep(5000);
-
-        driver.close();
     }
 }

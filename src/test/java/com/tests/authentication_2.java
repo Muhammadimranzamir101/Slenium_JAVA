@@ -1,5 +1,6 @@
 package com.tests;
 
+import com.base.BaseSuiteSetup;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,13 +9,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class authentication_2 {
-    public static void main(String[] args) {
+import static com.drivers.DriverManager.getDriver;
 
-        WebDriver Driver = new ChromeDriver();
+
+public class authentication_2 extends BaseSuiteSetup {
+    @BeforeClass
+    public void setupTest(){
+        getDriver ().navigate ()
+                .to ("https://amazon.com");
+    }
+
+    @Test
+    public void authentication2_OTest() {
+
+        WebDriver Driver = getDriver();
 
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*");
@@ -49,8 +62,6 @@ public class authentication_2 {
 
         String currentUrl = driver.getCurrentUrl();
         String authorizationCode = currentUrl.split("code=")[1];
-
-        driver.quit();
 
         // Use the obtained authorization code to request an access token
         // and make authenticated API requests as needed
